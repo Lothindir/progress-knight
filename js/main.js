@@ -2,6 +2,7 @@ var gameData = {
     taskData: {},
     itemData: {},
     townData: {},
+
     rawTownIncome: 0,
     coins: 0,
     days: 365 * 14,
@@ -16,6 +17,10 @@ var gameData = {
     currentSkill: null,
     currentProperty: null,
     currentMisc: null,
+
+    totalCitizens: 0,
+    assignedCitizens: 0,
+    idleCitizens: 0,
 }
 
 //tempData is used during initial game setup. 
@@ -1210,7 +1215,9 @@ function getElementsByClass(className) {
 
 function setLightDarkMode() {
     var body = document.getElementById("body")
+    var title = document.getElementById("title")
     body.classList.contains("dark") ? body.classList.remove("dark") : body.classList.add("dark")
+    title.classList.contains("dark") ? title.classList.remove("dark") : title.classList.add("dark")
 }
 
 function removeSpaces(string) {
@@ -1614,5 +1621,5 @@ setTab(jobTabButton, "jobs");
 
 update();
 setInterval(update, 1000 / updateSpeed);
-setInterval(saveGameData, 3000);
+setInterval(saveGameData, 6000);
 setInterval(setSkillWithLowestMaxXp, 1000);
